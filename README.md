@@ -1,7 +1,7 @@
 # made-pytorch
 
 A simple PyTorch implementation of Masked Autoencoder Distribution Estimation (MADE) for binary image dataset. 
-Based on [MADE: Masked Autoencoder for Distribution Estimation](https://arxiv.org/abs/1502.03509) by Germain et. al., and inspired by [karpathy](https://github.com/karpathy/pytorch-made).
+Based on [MADE: Masked Autoencoder for Distribution Estimation](https://arxiv.org/abs/1502.03509) by Germain et. al., and inspired by [karpathy](https://github.com/karpathy/pytorch-made). This by no means serve to reproduce the original results in the paper.
 
 ## MADE
 MADE is a type of autoregressive generative models which try to model the generation of images as a sequence of generation of pixels.
