@@ -1,6 +1,8 @@
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torchvision
 import numpy as np
 
 from made import MADE
@@ -8,12 +10,13 @@ from made import MADE
 
 
 def train(train_data, test_data, image_shape):
-    """
+    """ Trains MADE model on binary image dataset.
+        Arguments:
         train_data: A (n_train, H, W, 1) uint8 numpy array of binary images with values in {0, 1}
         test_data: An (n_test, H, W, 1) uint8 numpy array of binary images with values in {0, 1}
         image_shape: (H, W), height and width of the image
 
-        Returns
+        Returns:
         - a (# of training iterations,) numpy array of train_losses evaluated every minibatch
         - a (# of epochs + 1,) numpy array of test_losses evaluated once at initialization and after each epoch
         - a numpy array of size (100, H, W, 1) of samples with values in {0, 1}
@@ -58,7 +61,6 @@ def train(train_data, test_data, image_shape):
         test_loss = nll_loss(test_data, made(test_data))
         test_losses.append(test_loss.item())
         print(f'{epoch + 1}/{epochs} epochs')
-
 
     made.eval()
     samples = torch.zeros(size=(100, H * W)).to(device)

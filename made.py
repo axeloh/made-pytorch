@@ -7,6 +7,7 @@ from linear_masked import LinearMasked
 
 
 class MADE(nn.Module):
+    """ MADE model for binary image dataset. """
     def __init__(self, input_dim, use_cuda=True):
         super().__init__()
         self.input_dim = input_dim
