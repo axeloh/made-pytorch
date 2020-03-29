@@ -62,6 +62,7 @@ def train(train_data, test_data, image_shape):
         test_losses.append(test_loss.item())
         print(f'{epoch + 1}/{epochs} epochs')
 
+    # Generate samples
     made.eval()
     samples = torch.zeros(size=(100, H * W)).to(device)
     with torch.no_grad():
