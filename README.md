@@ -5,7 +5,13 @@ Based on [MADE: Masked Autoencoder for Distribution Estimation](https://arxiv.or
 
 ## MADE
 MADE is a type of autoregressive generative models which try to model the generation of images as a sequence of generation of pixels.
-MADE takes a regular autoencoder and tweaks it so that its output units predict the n conditional distributions instead of reconstructing the n inputs (as in regular autoencoders). It does this by masking the MLP connections such that the k-th output unit only depends on the previous k-1 inputs, see figure below. More formally, given a binary image of height \italic{H} and width W, we can represent the image as a flattened binary vector https://i.imgur.com/8bl0fcG.png s with most autoregressive models, evaluating likelihood is cheap (requires a single forward pass), while sampling must be done iteratively for every pixel, and is thus linear in the number of pixels. 
+MADE takes a regular autoencoder and tweaks it so that its output units predict the n conditional distributions instead of reconstructing the n inputs (as in regular autoencoders). It does this by masking the MLP connections such that the k-th output unit only depends on the previous k-1 inputs, see figure below. 
+
+More formally, given a binary image of height ***H*** and width ***W***, we can represent the image as a flattened binary vector <img src="https://i.imgur.com/8bl0fcG.png" width="75"/> to input into MADE to model the conditioned distribution: 
+
+<img src="https://i.imgur.com/g5epKUJ.png" width="200"/>
+
+As with most autoregressive models, evaluating likelihood is cheap (requires a single forward pass), while sampling must be done iteratively for every pixel, and is thus linear in the number of pixels. 
 
 ![](https://i.imgur.com/Eq9A8Hz.png)
 
