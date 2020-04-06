@@ -1,1 +1,3 @@
 theme: jekyll-theme-cayman
+title: MADE
+description: A PyTorch implementation of MADE (Masked Autoencoder Distribution Estimation)
